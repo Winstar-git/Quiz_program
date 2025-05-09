@@ -48,4 +48,8 @@ def run_quiz(questions):
     
     print("\nQuiz Complete!!")
     print(f"Your Score : {score} / {len(questions)}")
-    
+
+base_directory = "Quizzes"
+if not os.path.exists(base_directory):
+    print("No quizzes available. Make sure the 'Quizzes' foler exist.")
+    exit()
