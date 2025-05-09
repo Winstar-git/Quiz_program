@@ -53,3 +53,10 @@ base_directory = "Quizzes"
 if not os.path.exists(base_directory):
     print("No quizzes available. Make sure the 'Quizzes' foler exist.")
     exit()
+
+categories = list_categories(base_directory)
+if not  categories:
+    print("No quiz categories found.")
+    exit()
+
+    
