@@ -38,4 +38,14 @@ def run_quiz(questions):
         print(f"\nQuestion {number}: {question['question']}")
         for choice in sorted(question['choices']):
             print(f"{choice} {question['choices'][choice]}")
-            
+
+        user_answer = input("Your answer (a/b/c/d): ").lower()
+        while user_answer not in ['a', 'b', 'c', 'd']:
+            user_answer = input("Invalid input. Enter a/b/c/d: ").lower()
+
+        if user_answer == question['answer']:
+            score += 1
+    
+    print("\nQuiz Complete!!")
+    print(f"Your Score : {score} / {len(questions)}")
+    
