@@ -71,8 +71,13 @@ except (ValueError, IndexError):
     exit()
 
 category_directory = os.path.join(base_directory, selected_category)
-quiz_file = list_quiz_files(category_directory)
+quiz_files = list_quiz_files(category_directory)
 if not quiz_file:
     print("No quiz files found in this category.")
     exit()
+    
+print(f"Available quizzes in '{selected_category}':")
+for number, quiz_file in enumerate(quiz_files, 1):
+    print(f"{number}. {quiz_file}")
+
     
