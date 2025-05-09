@@ -30,3 +30,8 @@ def quiz(filepath):
     except Exception as error:
         print(f"Error loading quiz: {error}")
         return 
+    
+def run_quiz(questions):
+    score = 0 
+    random.shuffle(questions)
+    
