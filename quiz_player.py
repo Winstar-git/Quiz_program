@@ -69,4 +69,10 @@ try:
 except (ValueError, IndexError):
     print("Invalid selection.")
     exit()
+
+category_directory = os.path.join(base_directory, selected_category)
+quiz_file = list_quiz_files(category_directory)
+if not quiz_file:
+    print("No quiz files found in this category.")
+    exit()
     
