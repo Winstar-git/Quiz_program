@@ -80,4 +80,9 @@ print(f"Available quizzes in '{selected_category}':")
 for number, quiz_file in enumerate(quiz_files, 1):
     print(f"{number}. {quiz_file}")
 
-    
+try:
+    quiz_choice = int(input("\nSelect a quiz file by number: "))
+    selected_quiz = quiz_files[quiz_choice - 1]
+except (ValueError, IndexError):
+    print("Invalid selection.")
+    exit()
