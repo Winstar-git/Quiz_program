@@ -26,3 +26,7 @@ def quiz(filepath):
                     "choices": choices,
                     "answer": correct_answer
                 })
+        return questions
+    except Exception as error:
+        print(f"Error loading quiz: {error}")
+        return 
