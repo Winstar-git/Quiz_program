@@ -58,5 +58,8 @@ categories = list_categories(base_directory)
 if not  categories:
     print("No quiz categories found.")
     exit()
-
     
+print("\nAvailable Categories:")
+for number, category in enumerate(categories, 1):
+    print(f"{number}. {category}")
+
