@@ -34,4 +34,8 @@ def quiz(filepath):
 def run_quiz(questions):
     score = 0 
     random.shuffle(questions)
-    
+    for number, question in enumerate(questions, 1):
+        print(f"\nQuestion {number}: {question['question']}")
+        for choice in sorted(question['choices']):
+            print(f"{choice} {question['choices'][choice]}")
+            
