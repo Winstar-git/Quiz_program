@@ -13,7 +13,7 @@ def quiz(filepath):
         with open(filepath, "r", encoding="utf-8") as file:
             blocks = file.read().split("################")
             for block in blocks:
-                lines = block.strip()
+                lines = block.strip().split("\n")
                 if len(lines) < 6:
                     continue
                 question_text = lines[0].replace("Question: ", "")
