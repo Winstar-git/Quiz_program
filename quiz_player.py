@@ -86,3 +86,10 @@ try:
 except (ValueError, IndexError):
     print("Invalid selection.")
     exit()
+
+quiz_file_path = os.path.join(category_directory, selected_quiz)
+questions = quiz(quiz_file_path)
+if questions:
+    run_quiz(questions)
+else:
+    print("No valid questions found")
