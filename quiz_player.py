@@ -10,10 +10,19 @@ def list_quiz_files(path):
 def quiz(filepath):
     questions = []
     try:
-        with open(filpath, r, encoding="utf-8") as file:
+        with open(filepath, "r", encoding="utf-8") as file:
             blocks = file.read().split("################")
             for block in blocks:
-                line = block.strip()
-                if len(line) < 6:
+                lines = block.strip()
+                if len(lines) < 6:
                     continue
-                
+                question_text = lines[0].replace("Question: ")
+                choices = {
+                    line[0]: line[3:] for line in lines[1:5] if line[1] == ")"
+                }
+                correct_answer = lines[5].replace("Answer: ").strip().lower()
+                questions.append({
+                    "question": question_text,
+                    "choices": choices,
+                    "answer": correct_answer
+                })
