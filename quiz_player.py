@@ -16,11 +16,11 @@ def quiz(filepath):
                 lines = block.strip()
                 if len(lines) < 6:
                     continue
-                question_text = lines[0].replace("Question: ")
+                question_text = lines[0].replace("Question: ", "")
                 choices = {
                     line[0]: line[3:] for line in lines[1:5] if line[1] == ")"
                 }
-                correct_answer = lines[5].replace("Answer: ").strip().lower()
+                correct_answer = lines[5].replace("Answer: ", "").strip().lower()
                 questions.append({
                     "question": question_text,
                     "choices": choices,
@@ -72,7 +72,7 @@ except (ValueError, IndexError):
 
 category_directory = os.path.join(base_directory, selected_category)
 quiz_files = list_quiz_files(category_directory)
-if not quiz_file:
+if not quiz_files:
     print("No quiz files found in this category.")
     exit()
     
